@@ -1,7 +1,7 @@
 class Queue:
     """initiating class"""
     def __init__(self):
-        self.items = [] #создаем в классе своем в свое полеб обьекту
+        self.items = [] #создаем в классе своем в свое поле обьекту
 
     def enqueue(self, element):
         self.items.append(element)

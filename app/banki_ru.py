@@ -44,16 +44,18 @@ class Service:
     def search_bank(self, params):
         return filter(lambda x: params in x.bank, self.cards)
 
-    def sort(self, do):
-        a = list(filter(lambda x: x.has_cashback, self.cards))
-        return list(filter(lambda x: do < x.cashback_to, a))
-
     # def sort(self, field):
     #     return sorted(self.cards, reverse=reverse)
 
     def filter_by_percent(self, percent):
-        pass
+        a = list(filter(lambda x: x.max_percent, self.cards))
+        return list(filter(lambda x: percent < x.max_percent, a))
 
     def filter_by_cashback(self, cashback):
-        pass
+        a = list(filter(lambda x: x.has_cashback, self.cards))
+        return list(filter(lambda x: cashback < x.cashback_to, a))
+
+    def filter_by_bonus(self):
+        return filter(lambda x: x.bonus, self.cards)
+
 
